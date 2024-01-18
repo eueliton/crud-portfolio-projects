@@ -1,0 +1,6 @@
+com\tomjr\crud\controller\ProjetoControllerTest.class
+com\tomjr\crud\service\PessoaServiceTest.class
+com\tomjr\crud\controller\PessoaControllerTest.class
+com\tomjr\crud\service\MembroServiceTest.class
+com\tomjr\crud\service\ProjetoServiceTest.class
+com\tomjr\crud\controller\MembroControllerTest.class

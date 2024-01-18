@@ -1,0 +1,17 @@
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\model\MembrosKey.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\repo\IProjetoRepository.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\service\ProjetoService.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\MainApplication.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\controller\PessoaController.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\controller\HomeController.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\controller\ProjetoController.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\service\MembroService.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\model\Pessoa.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\model\Projeto.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\model\Membros.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\enums\RiscoEnum.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\repo\IPessoaRepository.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\service\PessoaService.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\repo\IMembroRepository.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\enums\StatusEnum.java
+C:\dev\CRUD-projetos\src\main\java\com\tomjr\crud\controller\MembroController.java
