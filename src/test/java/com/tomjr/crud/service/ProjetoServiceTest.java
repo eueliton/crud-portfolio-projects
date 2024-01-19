@@ -3,8 +3,10 @@ package com.tomjr.crud.service;
 
 import com.tomjr.crud.model.Pessoa;
 import com.tomjr.crud.model.Projeto;
-import com.tomjr.crud.repo.IPessoaRepository;
 import com.tomjr.crud.repo.IProjetoRepository;
+import com.tomjr.crud.service.impl.MembroService;
+import com.tomjr.crud.service.impl.PessoaService;
+import com.tomjr.crud.service.impl.ProjetoService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +18,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;

@@ -1,8 +1,9 @@
 package com.tomjr.crud.controller;
 
+import com.tomjr.crud.dto.PessoaDTO;
+import com.tomjr.crud.mapper.PessoaMapper;
 import com.tomjr.crud.model.Pessoa;
-import com.tomjr.crud.service.PessoaService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.tomjr.crud.service.impl.PessoaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,39 +12,47 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/pessoa")
+@ApiIgnore
 public class PessoaController {
 
-    @Autowired
     PessoaService pessoaService;
 
+    public PessoaController(PessoaService pessoaService) {
+        this.pessoaService = pessoaService;
+    }
 
     @GetMapping({"/list"})
     public String listPessoa(@ModelAttribute("message") String message, Model model) {
-        model.addAttribute("pessoaList", pessoaService.getAllPessoa());
+        model.addAttribute("pessoaList", PessoaMapper.convertEntityListToDtoList(pessoaService.getAllPessoa()));
         model.addAttribute("message", message);
         return "ListPessoa";
     }
 
     @GetMapping("/add")
     public String addPessoa(@ModelAttribute("message") String message, Model model) {
-        model.addAttribute("pessoa", new Pessoa());
+        model.addAttribute("pessoa", new PessoaDTO());
         model.addAttribute("message", message);
         return "AddPessoa";
     }
 
     @PostMapping("/save")
-    public String savePessoa(Pessoa pessoa, RedirectAttributes redirectAttributes) {
+    public String savePessoa(PessoaDTO pessoa, RedirectAttributes redirectAttributes) {
+
         try {
-            if (pessoaService.saveOrUpdatePessoa(pessoa)) {
+            Optional<Pessoa> pessoaCpf = pessoaService.getPessoaByCpf(pessoa.getCpf());
+            if (pessoaCpf.isPresent()) {
+                redirectAttributes.addFlashAttribute("message", "Exists Cpf");
+                return "redirect:/pessoa/add";
+            }
+            if (pessoaService.saveOrUpdatePessoa(PessoaMapper.convertDtoToEntity(pessoa))) {
                 redirectAttributes.addFlashAttribute("message", "Save Success");
                 return "redirect:/pessoa/list";
-            } else {
-
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -64,8 +73,8 @@ public class PessoaController {
     }
 
     @PostMapping("/editSave")
-    public String editSavePessoa(Pessoa pessoa, RedirectAttributes redirectAttributes) {
-        if (pessoaService.saveOrUpdatePessoa(pessoa)) {
+    public String editSavePessoa(PessoaDTO pessoa, RedirectAttributes redirectAttributes) {
+        if (pessoaService.saveOrUpdatePessoa(PessoaMapper.convertDtoToEntity(pessoa))) {
             redirectAttributes.addFlashAttribute("message", "Edit Success");
             return "redirect:/pessoa/list";
         }

@@ -1,9 +1,12 @@
 <!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -16,11 +19,12 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light navbar-light" style="background-color: #e3f2fd;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Gerenciador de Portólios</a>
+        <a class="navbar-brand" href="#">Gerenciador de PortfÃ³lios</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
@@ -28,7 +32,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/pessoa/list">Pessoas</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/projeto/list">Projetos</a>
             </li>
         </ul>
@@ -40,7 +44,7 @@
 <div class="container">
 
     <div class="starter-template">
-        <h3> Bem Vindo ao Portfólio de Projetos</h3>
+        <h3> Bem Vindo ao PortfÃ³lio de Projetos</h3>
     </div>
 
     <br>

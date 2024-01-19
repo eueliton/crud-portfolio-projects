@@ -1,7 +1,11 @@
 package com.tomjr.crud.service;
 
+import com.tomjr.crud.dto.PessoaDTO;
+import com.tomjr.crud.mapper.PessoaMapper;
 import com.tomjr.crud.model.Pessoa;
 import com.tomjr.crud.repo.IPessoaRepository;
+import com.tomjr.crud.service.impl.MembroService;
+import com.tomjr.crud.service.impl.PessoaService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +42,7 @@ public class PessoaServiceTest {
         List<Pessoa> pessoas = new ArrayList<>();
         pessoas.add(new Pessoa());
         when(pessoaRepository.findAll()).thenReturn(pessoas);
-        List<Pessoa> pessoaList = pessoaService.getAllPessoa();
+        List<PessoaDTO> pessoaList = PessoaMapper.convertEntityListToDtoList(pessoaService.getAllPessoa());
         assertEquals(pessoaList.size(), 1);
     }
 
@@ -50,7 +53,7 @@ public class PessoaServiceTest {
         List<Pessoa> pessoas = new ArrayList<>();
         pessoas.add(new Pessoa());
         when(pessoaRepository.findAllByGerenteIsTrue()).thenReturn(pessoas);
-        List<Pessoa> pessoaList = pessoaService.getAllGerentes();
+        List<PessoaDTO> pessoaList = PessoaMapper.convertEntityListToDtoList(pessoaService.getAllGerentes());
         assertEquals(pessoaList.size(), 1);
     }
 
@@ -100,8 +103,6 @@ public class PessoaServiceTest {
         boolean result = pessoaService.deletePessoa(1l);
         assertEquals(result, false);
     }
-
-
 
 
 }

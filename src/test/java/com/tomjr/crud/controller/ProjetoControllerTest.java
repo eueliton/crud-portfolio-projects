@@ -1,8 +1,8 @@
 package com.tomjr.crud.controller;
 
 import com.tomjr.crud.model.Projeto;
-import com.tomjr.crud.service.PessoaService;
-import com.tomjr.crud.service.ProjetoService;
+import com.tomjr.crud.service.impl.PessoaService;
+import com.tomjr.crud.service.impl.ProjetoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -23,12 +23,11 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
-
-
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light navbar-light" style="background-color: #e3f2fd;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -82,21 +81,27 @@
                 <tr>
                     <td>${projeto.id}</td>
                     <td>${projeto.nome}</td>
-                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${projeto.data_inicio}" /></td>
-                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${projeto.data_previsao_fim}" /></td>
-                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${projeto.data_fim}" /></td>
+                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${projeto.data_inicio}"/></td>
+                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${projeto.data_previsao_fim}"/></td>
+                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${projeto.data_fim}"/></td>
                     <td>${projeto.descricao}</td>
                     <td>${projeto.status}</td>
-                    <td><fmt:formatNumber pattern="#,#00.00#"   value="${projeto.orcamento}" /></td>
+                    <td><fmt:formatNumber pattern="#,#00.00#" value="${projeto.orcamento}"/></td>
                     <td>${projeto.risco}</td>
                     <td>${projeto.nomeGerente}</td>
-                    <td>${projeto.membros}</td>
+                    <td>
+                        <c:forEach var="membro" items="${projeto.membros}" varStatus="loopCounter">
+                            <c:out value="${loopCounter.count} "/>-<c:out value=" ${membro}"/></br>
+                        </c:forEach>
+                    </td>
 
                     <td>
-                        <a href="/projeto/edit/${projeto.id}" style="margin:auto; text-align:center; display:block;"  class="btn btn-success">Editar</a>
+                        <a href="/projeto/edit/${projeto.id}" style="margin:auto; text-align:center; display:block;"
+                           class="btn btn-success">Editar</a>
                     </td>
                     <td>
-                        <a href="/projeto/delete/${projeto.id}"  style="margin:auto; text-align:center; display:block;" class="btn btn-danger">Apagar</a>
+                        <a href="/projeto/delete/${projeto.id}" style="margin:auto; text-align:center; display:block;"
+                           class="btn btn-danger">Apagar</a>
                     </td>
                 </tr>
 
@@ -110,7 +115,7 @@
 </div>
 
 <script th:inline="javascript">
-    window.onload = function() {
+    window.onload = function () {
 
         var msg = "${message}";
         console.log(msg);

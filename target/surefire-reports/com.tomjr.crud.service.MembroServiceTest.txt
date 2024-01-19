@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.tomjr.crud.service.MembroServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.212 s - in com.tomjr.crud.service.MembroServiceTest

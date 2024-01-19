@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -30,11 +30,11 @@
     <script src="https://cdn.jsdelivr.net/gh/plentz/jquery-maskmoney@master/dist/jquery.maskMoney.min.js"></script>
 
 
-
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light navbar-light" style="background-color: #e3f2fd;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -65,11 +65,10 @@
                 <label class="col-md-3" for="nome">NOME</label>
                 <div class="col-md-6">
                     <form:input type="text" path="nome" id="nome"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
-
 
 
         <div class="row">
@@ -77,7 +76,7 @@
                 <label class="col-md-3" for="data_inicio">DT INICIO</label>
                 <div class="col-md-6">
                     <form:input type="text" path="data_inicio" id="data_inicio"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
@@ -87,7 +86,7 @@
                 <label class="col-md-3" for="data_previsao_fim">DT PREV. FIM</label>
                 <div class="col-md-6">
                     <form:input type="text" path="data_previsao_fim" id="data_previsao_fim"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
@@ -97,7 +96,7 @@
                 <label class="col-md-3" for="data_fim">DT. FIM</label>
                 <div class="col-md-6">
                     <form:input type="text" path="data_fim" id="data_fim"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
@@ -107,7 +106,7 @@
                 <label class="col-md-3" for="descricao">DESCRICAO</label>
                 <div class="col-md-6">
                     <form:input type="text" path="descricao" id="descricao"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
@@ -132,7 +131,7 @@
                 <label class="col-md-3" for="orcamento">ORCAMENTO</label>
                 <div class="col-md-6">
                     <form:input type="text" path="orcamento" id="orcamento"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
@@ -169,7 +168,7 @@
 
         <div class="row p-2">
             <div class="col-md-2">
-                <button type="submit" value="Register"  class="btn btn-success">Salvar</button>
+                <button type="submit" value="Register" class="btn btn-success">Salvar</button>
             </div>
         </div>
 
@@ -180,10 +179,16 @@
 <script th:inline="javascript">
 
 
-    window.onload = function() {
+    window.onload = function () {
 
 
-        $('#orcamento').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+        $('#orcamento').maskMoney({
+            prefix: 'R$ ',
+            allowNegative: true,
+            thousands: '.',
+            decimal: ',',
+            affixesStay: false
+        });
 
 
         var msg = "${message}";
@@ -215,7 +220,6 @@
     $('input[name="data_previsao_fim"]').mask('00/00/0000');
 
 </script>
-
 
 
 </body>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -31,7 +31,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light navbar-light" style="background-color: #e3f2fd;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -61,11 +62,10 @@
                 <label class="col-md-3" for="nome">NOME</label>
                 <div class="col-md-6">
                     <form:input type="text" path="nome" id="nome"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
-
 
 
         <div class="row">
@@ -73,7 +73,7 @@
                 <label class="col-md-3" for="cpf">DT NASCIMENTO</label>
                 <div class="col-md-6">
                     <form:input type="text" path="datanascimento" id="datanascimento"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
                 <label class="col-md-3" for="cpf">CPF</label>
                 <div class="col-md-6">
                     <form:input type="text" path="cpf" id="cpf"
-                                class="form-control input-sm" required="required" />
+                                class="form-control input-sm" required="required"/>
                 </div>
             </div>
         </div>
@@ -92,14 +92,15 @@
                 <label class="col-md-3" for="cargo">Name</label>
                 <div class="col-md-6">
                     <td><input type="radio" name="cargo" value="1" checked>
-                        Funcionário</td>
+                        Funcionário
+                    </td>
                     <td><input type="radio" name="cargo" value="2">Gerente</td>
                 </div>
             </div>
         </div>
         <div class="row p-2">
             <div class="col-md-2">
-                <button type="submit" value="Register"  class="btn btn-success">Salvar</button>
+                <button type="submit" value="Register" class="btn btn-success">Salvar</button>
             </div>
         </div>
 
@@ -110,13 +111,18 @@
 <script th:inline="javascript">
 
 
-    window.onload = function() {
+    window.onload = function () {
 
         var msg = "${message}";
         console.log(msg);
         if (msg == "Save Failure") {
             Command: toastr["error"]("Ocorreu um erro ao salvar.")
         }
+
+        if (msg == "Exists Cpf") {
+            Command: toastr["error"]("Já existe pessoa com esse CPF")
+        }
+
 
         toastr.options = {
             "closeButton": true,
@@ -139,7 +145,6 @@
     $('input[name="datanascimento"]').mask('00/00/0000');
 
 </script>
-
 
 
 </body>
